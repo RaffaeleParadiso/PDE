@@ -7,13 +7,13 @@ def initial_state_(N, x, y, L):
     p_i = np.zeros((N, N))
     for i in range(N):
         for j in range(N):
-            p_i[i, j] = np.exp(-((x[i]-0.3*L)**2+(y[j]-0.5*L)**2)/(2))
+            p_i[i, j] = np.exp(-((x[i])**2+(y[j])**2)/(2))
     return p_i
 
 @njit()
 def f(x, y, t):
-    w = 0.1
-    a0 = 0.05
+    w = 1
+    a0 = 0.2
     a = a0*np.cos(w*t)
     return (x-a*y*(1-x**2))
 

@@ -24,7 +24,7 @@ alphay = const.ALPHAY
 def alternate_direction_implicit():
     cc = 0
     p = state_i.initial_state_(N, x, y, L)
-    p_total = np.zeros((time_steps, N, N))
+    p_total = np.zeros((round(time_steps/INTV), N, N))
     for t in range(time_steps):
         step = np.zeros(N)
         temp = np.zeros(N)
@@ -56,9 +56,9 @@ def alternate_direction_implicit():
             temp = func.solve_matrix(N, low_diag[1:], main, up_diag[:N-1], step)
             for j in range(N-1):
                 p[i, j] = temp[j]
-        # p = state_i.boundary_conditions(N,'periodic', p)
+        p = state_i.boundary_conditions(N,'periodic', p)
         if t % INTV == 0:
-            p_total[t] = p
+            p_total[cc] = p
             cc += 1
             print(f'time step: {t}')
     return(p_total)
