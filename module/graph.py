@@ -40,8 +40,8 @@ def animate_matplotlib(x, y, u_della_vita, call):
     ax.set_xlabel('x')
     ax.set_ylabel('y')
     ani= animation.FuncAnimation(fig, update_plot, 50, fargs=(u_della_vita, plot), interval=200)
-    # writervideo = animation.FFMpegWriter(fps=10) 
-    # ani.save(f"{call}.mp4", writer=writervideo)
+    writervideo = animation.FFMpegWriter(fps=10) 
+    ani.save(f"{call}.mp4", writer=writervideo)
     plt.show()
 
 def static_plot(x, y, u):

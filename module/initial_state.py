@@ -13,7 +13,7 @@ def initial_state_(N, x, y, L):
 @njit()
 def f(x, y, t):
     w = 1
-    a0 = 0.2
+    a0 = 0.5
     a = a0*np.cos(w*t)
     return (x-a*y*(1-x**2))
 
