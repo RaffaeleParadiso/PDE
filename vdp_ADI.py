@@ -61,7 +61,7 @@ def alternate_direction_implicit():
             p_total[cc] = p
             cc += 1
             print(f'time step: {t}')
-    return(p_total)
+    return p_total
 
 p_total = alternate_direction_implicit()
 
