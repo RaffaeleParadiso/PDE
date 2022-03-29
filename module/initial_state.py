@@ -12,14 +12,37 @@ def initial_state_(N, x, y, L):
 
 @njit()
 def f(x, y, t):
-    w = 1
-    a0 = 0.5
-    a = a0*np.cos(w*t)
+    w = 2
+    a0 = 1
+    a = a0*np.cos(w)
     return (x-a*y*(1-x**2))
 
 @njit()
 def g(x, y):
     return y
+
+@njit()
+def f_duff(x, y, t):
+    '''drift function f for Duffing oscillator'''
+    return (x*(1-0.1*x**2)-2*0.05*y)
+
+@njit()
+def g_duff(x, y):
+    '''drift function g for Duffing oscillator'''
+    return y
+
+@njit()
+def f_parisi(x, y, t):
+    '''Drift function f for Parisi FP'''
+    w=1e-5
+    a = 1+0.0005*np.cos(w*t)
+    return -x+x**3+a*x+y
+
+@njit()
+def g_parisi(x, y):
+    '''Drift function g for Parisi FP'''
+    tau=0.05
+    return y/tau
 
 @njit()
 def boundary_conditions(dimension, kind, matrix):

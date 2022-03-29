@@ -56,7 +56,7 @@ def alternate_direction_implicit():
             temp = func.solve_matrix(N, low_diag[1:], main, up_diag[:N-1], step)
             for j in range(N-1):
                 p[i, j] = temp[j]
-        p = state_i.boundary_conditions(N,'periodic', p)
+        p = state_i.boundary_conditions(N,'absorbing', p)
         if t % INTV == 0:
             p_total[cc] = p
             cc += 1
