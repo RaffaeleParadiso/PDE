@@ -7,7 +7,7 @@ def initial_state_(N, x, y, L):
     p_i = np.zeros((N, N))
     for i in range(N):
         for j in range(N):
-            p_i[i, j] = np.exp(-((x[i])**2+(y[j])**2)/(2))
+            p_i[i, j] = np.exp(-((x[i])**2+(y[j])**2)/(2))+np.exp(-10000*(x[i]+y[j]))
     return p_i
 
 @njit()

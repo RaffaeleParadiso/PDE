@@ -1,6 +1,6 @@
 import numpy as np
 #--------------------constanti---------------
-TIME_STEPS= 100000
+TIME_STEPS= 20
 LEN= 2*np.pi
 N_= 200
 D_=2.1
@@ -11,7 +11,7 @@ CC=0
 X = np.linspace(-LEN, LEN, N_)
 Y = np.linspace(-LEN, LEN, N_)
 #--------------------------------------------
-DT=1e-3
+DT=0.0001
 DX = (X[1]-X[0])
 DY = (Y[1]-Y[0])
 #--------------------------------------------

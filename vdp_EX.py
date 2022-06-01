@@ -22,7 +22,7 @@ alphay = const.ALPHAY
 
 p = np.zeros((N, N))
 p_della_vita = np.zeros((round(time_steps/INTV)+1, N, N))
-p = state_i.initial_state_(N, p, x, y, L)
+p = state_i.initial_state_(N, x, y, L)
 p_new = np.copy(p)
 
 @njit(float64[:,:](float64[:,:], float64[:,:], int32), fastmath=True, cache=True)
